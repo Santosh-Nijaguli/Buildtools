@@ -1,30 +1,27 @@
 #include <stdio.h>
-#include <string.h>
-void reverse(char*, int, int);
-
-int main()
+int string_reverse()
 {
-   char a[100];
+   char s[1000], r[1000];
+   int begin, end, count = 0;
 
-   gets(a);
+   printf("Input a string\n");
+   gets(s);
 
-   reverse(a, 0, strlen(a)-1);
+   // Calculating string length
 
-   printf("%s\n", a);
+   while (s[count] != '\0')
+      count++;
+
+   end = count - 1;
+
+   for (begin = 0; begin < count; begin++) {
+      r[begin] = s[end];
+      end--;
+   }
+
+   r[begin] = '\0';
+
+   printf("%s\n", r);
 
    return 0;
-}
-
-void reverse(char *x, int begin, int end)
-{
-   char c;
-
-   if (begin >= end)
-      return;
-
-   c          = *(x+begin);
-   *(x+begin) = *(x+end);
-   *(x+end)   = c;
-
-   reverse(x, ++begin, --end);
 }
