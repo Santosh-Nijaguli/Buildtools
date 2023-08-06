@@ -1,30 +1,27 @@
 #include <stdio.h>
-#include <string.h>
-
-void string_reverse(char *str) {
-    int i, j;
-    char temp;
-    int len = strlen(str);
-
-    for (i = 0, j = len - 1; i < j; i++, j--) {
-        temp = str[i];
-        str[i] = str[j];
-        str[j] = temp;
-    }
-}
 
 int string_reverse() {
-    char str[100];
+  
+char string1[100]="tutorial", reversed_string[100];
+int i, j, count = 0;
 
-    printf("Enter a string: ");
-    fgets(str, sizeof(str), stdin);
+//original string
 
-    // Remove the newline character from the input
-    str[strcspn(str, "\n")] = '\0';
+printf("\n Given String = %s", string1);
 
-    string_reverse(str);
-
-    printf("Reversed string: %s\n", str);
-
-    return 0;
+// loop to calculate the length of the string
+while (string1[count] != '\0') {
+  count++;
 }
+
+j = count - 1;
+
+//assigning the value to characters of a new string
+for (i = 0; i < count; i++) {
+  reversed_string[i] = string1[j];
+  j--;
+}
+
+printf("\n Reversed String = %s", reversed_string);
+}
+
